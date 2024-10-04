@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename=('/css/style.css'))}}">
     <title>Headlines</title>
 </head>
 <body>
     <h1>Headlines</h1>
-    <div>
-        <h2>{{title}}</h2>
-        <em>{{published}}</em>
-        <p>{{summary}}</p>
-    </div>
+    {% for i in articles %}
+        <div>
+            <a href="{{i.link}}">{{i.title}}</a> <br>
+            <em>{{i.published}}</em>
+            <p>{{i.summary}}</p>
+            <hr>
+        </div>
+    {% endfor %}
 </body>
 </html>
